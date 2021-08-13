@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 4 İşlem</title>
+
+
+
+
+</head>
+<body>
+
+  <style>
+
+body{
+  padding-top: 100px;
+  background: rgb(32, 32, 32);
+  color: white;
+  font-size: x-large;
+}
+
+#start{
+  border-style: solid;
+ border-radius: 50px;
+  width:680px;
+  height: 250px;
+  padding: 20px;
+text-align: center;
+margin: auto;
+background:black;
+
+
+
+}
+#true{
+background: green;
+width: 25px;
+margin: auto;
+}
+
+#false{
+  width: 25px;
+  background: red;
+  margin: auto;
+}
+
+
+  </style>
+    
+<div id="start">
+
+    <h1>Rastgele 4 İşlemler </h1>
+    <span id="number1">0</span>
+    <span id="operator">+</span>
+    <span id="number2">0</span>
+    <span>=</span>
+    <input type="text" id="result">
+    <input   id="buton" type="button" value="Cevapla">
+    <div id="true">  0</div>
+    <div id="false">  0</div>
+    
+    
+    
+    
+    </div>
+   
+
+
+
+
+    <script>
+      
+      var Number1,Number2,Operator,Result,Buton,True,False;
+    Number1= document.getElementById("number1");
+     Number2 =document.getElementById("number2");
+    Operator= document.getElementById("operator"); 
+     Result = document.getElementById("result");
+     Buton = document.getElementById("buton");
+     True= document.getElementById("true");
+     False =document.getElementById("false");    
+       
+     function RandomNumber(max,min){
+       var number=Math.floor(Math.random()*(max-min)+min);
+  return number;
+ 
+     }
+
+
+   function newQuestion(){
+     var operation=["+","-","/","*"];
+     Operator.textContent=operation[RandomNumber(4,0)];
+     Number1.textContent=RandomNumber(10,1);
+     Number2.textContent=RandomNumber(10,1);
+
+     if(Operator.textContent=="/"){
+     while(true){
+
+      Number2.textContent=RandomNumber(10,1);
+     if(Number1.textContent%Number2.textContent==0){
+       break;
+     }
+
+
+     }
+
+     }
+
+   
+
+   }
+
+   Buton.onclick=function(){
+     
+    var n1,n2,ans;
+    n1=Number(Number1.textContent);
+    n2=Number(Number2.textContent);
+
+
+
+    switch(Operator.textContent){
+     case "+":ans=n1+n2;
+     break;
+     case "-":ans=n1-n2;
+     break;
+     case "*":ans=n1*n2;
+     break;
+     case "/":ans=n1/n2;
+     break;
+     default:break;
+    }
+    if(result.value==ans){
+      True.textContent=Number(True.textContent)+1;
+    }
+    else{
+      False.textContent=Number(False.textContent)+1;
+
+    } 
+
+    Result.value="";
+
+  
+    newQuestion();
+    
+   }
+   
+
+
+
+
+     
+        </script>
+
+
+
+</body>
+</html>
